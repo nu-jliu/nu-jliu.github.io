@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Allen&apos;s Portfolio</title>
+    <description>Northwestern MS in Robotics Student Portfolio</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 18 Jan 2024 16:49:43 -0600</pubDate>
+    <lastBuildDate>Thu, 18 Jan 2024 16:49:43 -0600</lastBuildDate>
+    <generator>Jekyll v3.9.2</generator>
+    
+      <item>
+        <title>Polyglot Bot Translator Robot</title>
+        <description>&lt;p&gt;Python, ROS2, Moveit2, YOLO, OCR, AprilTags&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Authors&lt;/strong&gt;: Allen Liu, Damien Koh, Kassidy Shedd, Henry Brown, Megan Black&lt;/p&gt;
+
+&lt;h1 id=&quot;project-description&quot;&gt;Project Description&lt;/h1&gt;
+&lt;p&gt;This project is to control a franka Panda arm to reads in a sentence in any kind of language and then translated into the target one.&lt;/p&gt;
+
+&lt;h1 id=&quot;architecture&quot;&gt;Architecture&lt;/h1&gt;
+&lt;p&gt;This project consists of 5 subsystems, in which each group member is in charge of one of them:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translation&lt;/code&gt;: Damine was in charge of this subsystem, which calls &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google-translation&lt;/code&gt; API for translating from the source language to the target language.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;computer_vision&lt;/code&gt;: Megan was in charge of this subsystem, which uses the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YOLO&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ocr&lt;/code&gt; python package for recongnizing texts and human detection.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;string2waypoints&lt;/code&gt;: Kassidy as in charge of this subsystem, which uses the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;matplotlib&lt;/code&gt; python package to generate the waypoints for robot to travel through.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;writer&lt;/code&gt;: I was in chage of this subsystem, which uses the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cartesian path planner&lt;/code&gt; from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moveit2&lt;/code&gt; package to find and execute the path for the robot to write the specific characters on the write board, while calibrating the relative location of the whiteboard using the apriltags.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltags&lt;/code&gt;: Henry was in charge of this subsystem, which uses the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltag_ros&lt;/code&gt; package for detecting the location and orientation of each apriltag, used for pinpointing the location and orientation of the whiteboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;features&quot;&gt;Features&lt;/h1&gt;
+
+&lt;h2 id=&quot;translate-from-chinese-to-english&quot;&gt;Translate from Chinese to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EdNptTr9Y0U?si=ZA9z5NeRokLx9CQw&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-german-to-french&quot;&gt;Translate from German to French&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/iFoNAHWQ9wE?si=es4q5_6K3KzxVzFM&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-spanish-to-korean&quot;&gt;Translate from Spanish to Korean&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Qjd3jGlU8Ds?si=3aTC0FWY6vf4mSaL&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-simpified-chinese-to-traditional-chinese&quot;&gt;Translate from Simpified Chinese to Traditional Chinese&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9GdGPy74Qwg?si=FwCUxvQhKl4Oi-Fo&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;hindi-voice-to-english&quot;&gt;Hindi Voice to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/BeQzYUYSe5k?si=6rlJjthlDPSmCw-F&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;spanish-voice-to-english&quot;&gt;Spanish Voice to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9PCf_-gbIbU?si=YZCxg8eNQXIZg_Oy&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;challenges&quot;&gt;Challenges&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Cartesian Path Planner&lt;/em&gt;: When first implementing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find cartesian path&lt;/code&gt; feature over &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moveit&lt;/code&gt; API, we faced the issue where the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rviz&lt;/code&gt; showed that robot already found the path, but just not be able to execute it. So we looked through our code for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moveit&lt;/code&gt; API on the function that calls the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ComputeCartesianPath&lt;/code&gt; service. And compare that with the official documentation for the moveit and then we found that me have a missing parameter called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cartesian_speed_limit_link&lt;/code&gt; that we have not specified. Eventually after we fill in that blank, the robot moves as expected.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;TF tree when integrating apriltags&lt;/em&gt;: When we first implemented the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltags&lt;/code&gt; on the robot, we experienced some issue that sometimes the robot does not move as intended, that moving towards the orientation and position that will cause the collision. We started debug by examing the TF tree of the robot and did a lot experiments sending various command telling robot to move in all possible directions. And finally when we are examing the TF tree for the robot, we realize that as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltags&lt;/code&gt; are added to the system, the root frame of the TF tree became the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;camera&lt;/code&gt; instead of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;panda_link0&lt;/code&gt;, which is the base frame of the robot. So that the command we are sending is relaive to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;camera&lt;/code&gt; frame instead of base frame. After we fix that, the robot moves perfectly.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;possible-improvements&quot;&gt;Possible improvements.&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some script language still fail to detect.&lt;/li&gt;
+  &lt;li&gt;Sometimes, the camera source get dropped, need to re-launch all.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 10 Dec 2023 00:00:00 -0600</pubDate>
+        <link>http://localhost:4000/ployglotbot/</link>
+        <guid isPermaLink="true">http://localhost:4000/ployglotbot/</guid>
+        
+        
+        <category>OCR</category>
+        
+        <category>YOLO</category>
+        
+        <category>Python</category>
+        
+        <category>ROS2</category>
+        
+        <category>MoveIt2</category>
+        
+      </item>
+    
+      <item>
+        <title>Feedback Control on KUKA youBot</title>
+        <description>&lt;p&gt;MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Authors&lt;/strong&gt;: Allen Liu&lt;/p&gt;
+
+&lt;h1 id=&quot;project-description&quot;&gt;Project Description&lt;/h1&gt;
+&lt;p&gt;This project is to implement the feedforward/feedback control over the KUKA youBot to pick up a cube and place it at another place in the world.&lt;/p&gt;
+
+&lt;h1 id=&quot;goal&quot;&gt;Goal&lt;/h1&gt;
+&lt;p&gt;The goal of this project is to find the propotional gain $K_p$ and integral gain $K_i$ at 3 given scenarios: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Best&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Overshoot&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;New Task&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;best&quot;&gt;Best&lt;/h2&gt;
+&lt;p&gt;For the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Best&lt;/code&gt; controller, the target is to design the controller that robot follows the planned path perfectly without any oscillation.&lt;/p&gt;
+
+&lt;h2 id=&quot;overshoot&quot;&gt;Overshoot&lt;/h2&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Overshoot&lt;/code&gt; controller is designed to follow the planned path, but oscillates around the planned path.&lt;/p&gt;
+
+&lt;h1 id=&quot;features&quot;&gt;Features&lt;/h1&gt;
+
+&lt;h2 id=&quot;translate-from-chinese-to-english&quot;&gt;Translate from Chinese to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EdNptTr9Y0U?si=ZA9z5NeRokLx9CQw&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-german-to-french&quot;&gt;Translate from German to French&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/iFoNAHWQ9wE?si=es4q5_6K3KzxVzFM&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-spanish-to-korean&quot;&gt;Translate from Spanish to Korean&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Qjd3jGlU8Ds?si=3aTC0FWY6vf4mSaL&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;translate-from-simpified-chinese-to-traditional-chinese&quot;&gt;Translate from Simpified Chinese to Traditional Chinese&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9GdGPy74Qwg?si=FwCUxvQhKl4Oi-Fo&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;hindi-voice-to-english&quot;&gt;Hindi Voice to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/BeQzYUYSe5k?si=6rlJjthlDPSmCw-F&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;spanish-voice-to-english&quot;&gt;Spanish Voice to English&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9PCf_-gbIbU?si=YZCxg8eNQXIZg_Oy&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;challenges&quot;&gt;Challenges&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Cartesian Path Planner&lt;/em&gt;: When first implementing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find cartesian path&lt;/code&gt; feature over &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moveit&lt;/code&gt; API, we faced the issue where the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rviz&lt;/code&gt; showed that robot already found the path, but just not be able to execute it. So we looked through our code for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moveit&lt;/code&gt; API on the function that calls the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ComputeCartesianPath&lt;/code&gt; service. And compare that with the official documentation for the moveit and then we found that me have a missing parameter called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cartesian_speed_limit_link&lt;/code&gt; that we have not specified. Eventually after we fill in that blank, the robot moves as expected.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;TF tree when integrating apriltags&lt;/em&gt;: When we first implemented the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltags&lt;/code&gt; on the robot, we experienced some issue that sometimes the robot does not move as intended, that moving towards the orientation and position that will cause the collision. We started debug by examing the TF tree of the robot and did a lot experiments sending various command telling robot to move in all possible directions. And finally when we are examing the TF tree for the robot, we realize that as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apriltags&lt;/code&gt; are added to the system, the root frame of the TF tree became the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;camera&lt;/code&gt; instead of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;panda_link0&lt;/code&gt;, which is the base frame of the robot. So that the command we are sending is relaive to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;camera&lt;/code&gt; frame instead of base frame. After we fix that, the robot moves perfectly.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;possible-improvements&quot;&gt;Possible improvements.&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some script language still fail to detect.&lt;/li&gt;
+  &lt;li&gt;Sometimes, the camera source get dropped, need to re-launch all.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 06 Dec 2023 00:00:00 -0600</pubDate>
+        <link>http://localhost:4000/youbot/</link>
+        <guid isPermaLink="true">http://localhost:4000/youbot/</guid>
+        
+        
+        <category>MATLAB</category>
+        
+        <category>Robot Dynamics</category>
+        
+        <category>Feedback Control</category>
+        
+        <category>Feedforward Control</category>
+        
+        <category>Mobile Manipulator</category>
+        
+      </item>
+    
+  </channel>
+</rss>
