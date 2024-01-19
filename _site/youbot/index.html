@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="icon" href="/assets/images/logo.png">
+    <link rel="icon" href="/assets/images/logo.png">
 
-<title>Feedback Control on KUKA youBot | Jingkun (Allen) Liu</title>
+    <title>Feedback Control on KUKA youBot | Jingkun (Allen) Liu</title>
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Feedback Control on KUKA youBot | Allen’s Portfolio</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Feedback Control on KUKA youBot" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator" />
-<meta property="og:description" content="MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator" />
+<meta name="description" content="MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator, CoppeliaSim" />
+<meta property="og:description" content="MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator, CoppeliaSim" />
 <link rel="canonical" href="http://localhost:4000/youbot/" />
 <meta property="og:url" content="http://localhost:4000/youbot/" />
 <meta property="og:site_name" content="Allen’s Portfolio" />
@@ -25,63 +26,68 @@
 <meta property="twitter:image" content="http://localhost:4000/assets/images/youbot.gif" />
 <meta property="twitter:title" content="Feedback Control on KUKA youBot" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-06T00:00:00-06:00","datePublished":"2023-12-06T00:00:00-06:00","description":"MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator","headline":"Feedback Control on KUKA youBot","image":"http://localhost:4000/assets/images/youbot.gif","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/youbot/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo3.png"}},"url":"http://localhost:4000/youbot/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-06T00:00:00-06:00","datePublished":"2023-12-06T00:00:00-06:00","description":"MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator, CoppeliaSim","headline":"Feedback Control on KUKA youBot","image":"http://localhost:4000/assets/images/youbot.gif","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/youbot/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo3.png"}},"url":"http://localhost:4000/youbot/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-<link href="/assets/css/screen.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/screen.css" rel="stylesheet">
 
-<script src="/assets/js/jquery.min.js"></script>
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
 
 </head>
 
 
 
 
+
 <body class="layout-post">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
+    <!-- defer loading of font and font awesome -->
+    <noscript id="deferred-styles">
+        <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+            integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    </noscript>
 
 
-<!-- Begin Menu Navigation
+    <!-- Begin Menu Navigation
 ================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
 
-    <div class="container pr-0">
+        <div class="container pr-0">
 
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="/">
-    <img src="/assets/images/logo3.png" alt="Jingkun (Allen) Liu">
-    </a>
-    <!-- End Logo -->
+            <!-- Begin Logo -->
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo3.png" alt="Jingkun (Allen) Liu">
+            </a>
+            <!-- End Logo -->
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarMediumish">
+            <div class="collapse navbar-collapse" id="navbarMediumish">
 
-        <!-- Begin Menu -->
+                <!-- Begin Menu -->
 
-            <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
 
-                
-                <li class="nav-item">
-                
-                <a class="nav-link" href="/index.html">Projects</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/JamesOubre_Resume">Resume</a>
-                </li>
+                    
+                    <li class="nav-item">
+                        
+                        <a class="nav-link" href="/index.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allen_resume">Contact Me</a>
+                    </li>
 
-                <script src="/assets/js/lunr.js"></script>
+                    <script src="/assets/js/lunr.js"></script>
 
 
 <style>
@@ -103,34 +109,34 @@
 
 <script src="/assets/js/lunrsearchengine.js"></script>
 
-            </ul>
+                </ul>
 
-        <!-- End Menu -->
+                <!-- End Menu -->
 
-    </div>
+            </div>
 
-    </div>
-</nav>
-<!-- End Navigation
+        </div>
+    </nav>
+    <!-- End Navigation
 ================================================== -->
 
-<div class="site-content">
+    <div class="site-content">
 
-<div class="container">
+        <div class="container">
 
-<!-- Site Title
+            <!-- Site Title
 ================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">Jingkun (Allen) Liu</h1>
-    <p class="lead">
-        Northwestern MS in Robotics Student Portfolio
-    </p>
-</div>
+            <div class="mainheading">
+                <h1 class="sitetitle">Jingkun (Allen) Liu</h1>
+                <p class="lead">
+                    Northwestern MS in Robotics Student Portfolio
+                </p>
+            </div>
 
-<!-- Content
+            <!-- Content
 ================================================== -->
-<div class="main-content">
-    <!-- Begin Article
+            <div class="main-content">
+                <!-- Begin Article
 ================================================== -->
 <div class="container">
     <div class="row">
@@ -158,7 +164,7 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator</p>
+                <p>MATLAB, Robot Dynamics, Feedback Control, Feedforward Control, Mobile Manipulator, CoppeliaSim</p>
 
 <p><strong>Authors</strong>: Allen Liu</p>
 
@@ -166,39 +172,45 @@
 <p>This project is to implement the feedforward/feedback control over the KUKA youBot to pick up a cube and place it at another place in the world.</p>
 
 <h1 id="goal">Goal</h1>
-<p>The goal of this project is to find the propotional gain $K_p$ and integral gain $K_i$ at 3 given scenarios: <code class="language-plaintext highlighter-rouge">Best</code>, <code class="language-plaintext highlighter-rouge">Overshoot</code> and <code class="language-plaintext highlighter-rouge">New Task</code></p>
+<p>The goal of this project is to simulate the dynamics of the <code class="language-plaintext highlighter-rouge">KUKA youBot</code> in <code class="language-plaintext highlighter-rouge">CopeliaSim</code> and design the optimal controller given 3 scenarios: <code class="language-plaintext highlighter-rouge">Best</code>, <code class="language-plaintext highlighter-rouge">Overshoot</code> and <code class="language-plaintext highlighter-rouge">New Task</code>, in finding the values of proportinal gain <code class="language-plaintext highlighter-rouge">Kp</code> and integral gain <code class="language-plaintext highlighter-rouge">Ki</code> for each task.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Best</code>: The robot follows the planned path without any overshoot and steady-state error.</li>
+  <li><code class="language-plaintext highlighter-rouge">Overshoot</code>: The robot reaches the goal with zero steady-state error but overshoots along the way.</li>
+  <li><code class="language-plaintext highlighter-rouge">New Task</code>: The robot follows the planned path to a new goal without overshoot and steady-state error.</li>
+</ul>
+
+<h1 id="structure">Structure</h1>
+<p>This overall project can be divided into 3 tasks: <code class="language-plaintext highlighter-rouge">Kinematics</code>, <code class="language-plaintext highlighter-rouge">Path Planning</code> and <code class="language-plaintext highlighter-rouge">Feedback Control</code>.</p>
+
+<h2 id="kinematic-of-the-mobile-platform">Kinematic of the Mobile Platform</h2>
+<p>The KUKA youBot is modeled as a 4-wheel mobile robot, where each wheel can either moving in a stright-line or sliding sideways. The mobile platform is modeled as following:</p>
+
+<h2 id="cartesian-path-generator">Cartesian Path Generator</h2>
+<p>To find the path from the start to the goal, I used the cartesian path planning to generate a 5th order cartesian path so that the robot starts and ends with zero accelerations.</p>
+
+<h2 id="feedback-control-of-the-kuka-youbot">Feedback Control of the KUKA youBot</h2>
+
+<h1 id="results">Results</h1>
 
 <h2 id="best">Best</h2>
-<p>For the <code class="language-plaintext highlighter-rouge">Best</code> controller, the target is to design the controller that robot follows the planned path perfectly without any oscillation.</p>
+
+<p>The result for the <code class="language-plaintext highlighter-rouge">Best</code> controller is shown below:</p>
+
+<p><img src="https://github.com/nu-jliu/MECH_ENG_449/blob/main/Final_Project/best/error_plot.jpg" alt="best" /></p>
 
 <h2 id="overshoot">Overshoot</h2>
-<p>The <code class="language-plaintext highlighter-rouge">Overshoot</code> controller is designed to follow the planned path, but oscillates around the planned path.</p>
 
-<h1 id="features">Features</h1>
+<p><img src="assets/images/overshoot.jpg" alt="overshoot" /></p>
 
-<h2 id="translate-from-chinese-to-english">Translate from Chinese to English</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EdNptTr9Y0U?si=ZA9z5NeRokLx9CQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<h2 id="new-task">New Task</h2>
 
-<h2 id="translate-from-german-to-french">Translate from German to French</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iFoNAHWQ9wE?si=es4q5_6K3KzxVzFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-
-<h2 id="translate-from-spanish-to-korean">Translate from Spanish to Korean</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Qjd3jGlU8Ds?si=3aTC0FWY6vf4mSaL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-
-<h2 id="translate-from-simpified-chinese-to-traditional-chinese">Translate from Simpified Chinese to Traditional Chinese</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9GdGPy74Qwg?si=FwCUxvQhKl4Oi-Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-
-<h2 id="hindi-voice-to-english">Hindi Voice to English</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BeQzYUYSe5k?si=6rlJjthlDPSmCw-F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-
-<h2 id="spanish-voice-to-english">Spanish Voice to English</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9PCf_-gbIbU?si=YZCxg8eNQXIZg_Oy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<p><img src="assets/images/newTask.jpg" alt="newtask" /></p>
 
 <h1 id="challenges">Challenges</h1>
-<ol>
-  <li><em>Cartesian Path Planner</em>: When first implementing the <code class="language-plaintext highlighter-rouge">find cartesian path</code> feature over <code class="language-plaintext highlighter-rouge">moveit</code> API, we faced the issue where the <code class="language-plaintext highlighter-rouge">rviz</code> showed that robot already found the path, but just not be able to execute it. So we looked through our code for the <code class="language-plaintext highlighter-rouge">moveit</code> API on the function that calls the <code class="language-plaintext highlighter-rouge">ComputeCartesianPath</code> service. And compare that with the official documentation for the moveit and then we found that me have a missing parameter called <code class="language-plaintext highlighter-rouge">cartesian_speed_limit_link</code> that we have not specified. Eventually after we fill in that blank, the robot moves as expected.</li>
-  <li><em>TF tree when integrating apriltags</em>: When we first implemented the <code class="language-plaintext highlighter-rouge">apriltags</code> on the robot, we experienced some issue that sometimes the robot does not move as intended, that moving towards the orientation and position that will cause the collision. We started debug by examing the TF tree of the robot and did a lot experiments sending various command telling robot to move in all possible directions. And finally when we are examing the TF tree for the robot, we realize that as <code class="language-plaintext highlighter-rouge">apriltags</code> are added to the system, the root frame of the TF tree became the <code class="language-plaintext highlighter-rouge">camera</code> instead of the <code class="language-plaintext highlighter-rouge">panda_link0</code>, which is the base frame of the robot. So that the command we are sending is relaive to the <code class="language-plaintext highlighter-rouge">camera</code> frame instead of base frame. After we fix that, the robot moves perfectly.</li>
-</ol>
+<ul>
+  <li><em>Finding Optimal <code class="language-plaintext highlighter-rouge">Kp</code> and <code class="language-plaintext highlighter-rouge">Ki</code></em>: Discovering the ideal values for <code class="language-plaintext highlighter-rouge">Ki</code> and <code class="language-plaintext highlighter-rouge">Kp</code> poses a challenge in designing controllers that excel in various scenarios. Achieving optimal performance necessitates an iterative process for each parameter. Theoretical values alone often fall short of delivering the best results. To overcome this challenge, I invest a substantial amount of time in conducting extensive experiments. This approach allows me to identify and refine the most effective values for the controller, ensuring optimal performance across diverse situations.</li>
+</ul>
 
 <h1 id="possible-improvements">Possible improvements.</h1>
 <ul>
@@ -223,6 +235,10 @@
             <div class="after-post-cats">
                 <ul class="tags mb-4">
                     
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#CoppeliaSim">CoppeliaSim</a>
+                    </li>
                     
                     <li>
                         <a class="smoothscroll" href="/categories#Feedback-Control">Feedback Control</a>
@@ -260,6 +276,8 @@
             <!-- Prev/Next -->
             <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
             
+            <a class="prev d-block col-md-6" href="/rrt/"> &laquo; Rapidly_exploring Random Tree</a>
+            
             
             <a class="next d-block col-md-6 text-lg-right" href="/ployglotbot/">Polyglot Bot Translator Robot &raquo; </a>
             
@@ -279,82 +297,118 @@
 https://search.google.com/structured-data/testing-tool/u/0/
 ================================================== -->
 
-</div>
-
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
             </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            
-            
-                
-                    <a class="mt-1 mb-1" href="/categories#MATLAB">MATLAB (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#Robot-Dynamics">Robot Dynamics (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#Feedback-Control">Feedback Control (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#Feedforward-Control">Feedforward Control (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#Mobile-Manipulator">Mobile Manipulator (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#OCR">OCR (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#YOLO">YOLO (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#Python">Python (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#ROS2">ROS2 (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#MoveIt2">MoveIt2 (1)</a>
-                
-            
-            
-		</div>
-	</div>
-</div>
 
-<!-- Begin Footer
+            <!-- Categories Jumbotron
 ================================================== -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2024 Jingkun (Allen) Liu 
+            <div class="jumbotron fortags">
+                <div class="d-md-flex h-100">
+                    <div class="col-md-4 transpdark align-self-center text-center h-100">
+                        <div class="d-md-flex align-items-center justify-content-center h-100">
+                            <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                                    class="d-none d-md-inline">→</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-8 p-5 align-self-center text-center">
+                        
+                        
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Python">Python (3)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Wavefront">Wavefront (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Recursive-Backtracking">Recursive Backtracking (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Randomized-Prim">Randomized Prim (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#RRT">RRT (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#MATLAB">MATLAB (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Robot-Dynamics">Robot Dynamics (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Feedback-Control">Feedback Control (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Feedforward-Control">Feedforward Control (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Mobile-Manipulator">Mobile Manipulator (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#CoppeliaSim">CoppeliaSim (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#OCR">OCR (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#YOLO">YOLO (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#ROS2">ROS2 (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#MoveIt2">MoveIt2 (1)</a>
+                        
+                        <a class="mt-1 mb-1"
+                            href="/categories#Emika-Franka-Robot-Arm">Emika Franka Robot Arm (1)</a>
+                        
+                        
+                        
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End Footer
+
+            <!-- Begin Footer
+================================================== -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                            Copyright © 2024 Jingkun (Allen) Liu
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-center text-lg-right">
+                            <a target="_blank"
+                                href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll
+                                Theme</a> by WowThemes.net
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer
 ================================================== -->
 
-</div> <!-- /.site-content -->
+        </div> <!-- /.site-content -->
 
-<!-- Scripts
+        <!-- Scripts
 ================================================== -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
 
-<script src="/assets/js/mediumish.js"></script>
+        <script src="/assets/js/mediumish.js"></script>
 
+        
 
+        <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
-
-
-<script id="dsq-count-scr" src="//.disqus.com/count.js"></script>
-
+        
+        <script id="dsq-count-scr" src="//.disqus.com/count.js"></script>
+        
 
 </body>
+
 </html>

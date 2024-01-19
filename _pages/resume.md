@@ -1,20 +1,20 @@
 ---
 layout: page
 title: Resume and Contact Info
-permalink: /JamesOubre_Resume
+permalink: /allen_resume
 comments: false
 ---
 
 # Contact
 
-#### jamesoubre2023@u.northwestern.edu
+#### [jingkunliu2025@u.northwestern.edu](mailto:jingkunliu2025@u.northwestern.edu)
 
-#### [GitHub](https://github.com/oubrejames)
+#### [GitHub](https://github.com/nu-jliu)
 
-#### [LinkedIn](https://www.linkedin.com/in/james-oubre) 
+#### [LinkedIn](https://www.linkedin.com/in/jingkun-liu-709b36178/) 
 
-<iframe src="_pages/Awesome_CV-15.pdf" width="100%" height="1500px">
+<iframe src="_pages/Resume_Allen_Liu.pdf" width="100%" height="1500px">
 </iframe>
 
-## [Download Resume as a PDF](Awesome_CV-15.pdf)
+## [Download Resume as a PDF](Resume_Allen_Liu.pdf)
 
