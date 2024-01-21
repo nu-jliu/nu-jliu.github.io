@@ -11,6 +11,8 @@ OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm
 
 **Authors**: Allen Liu, Damien Koh, Kassidy Shedd, Henry Brown, Megan Black
 
+**GitHub**: [View this project on GitHub](https://github.com/nu-jliu/final-project-me495)
+
 # Project Description
 Lead the team in creating a sophisticated system that can process input from either text written on a whiteboard or audio received through a microphone. This ambitious project involves multiple stages, including text and speech recognition, language identification, translation into the target language, and the unique aspect of controlling a robot arm to physically write the translated text onto a whiteboard. The team will need to implement strong text and speech recognition capabilities, incorporating language detection mechanisms for accurate translation. The integration of a robot arm introduces a novel challenge, requiring seamless communication between language processing components and the robotic control system. Collaboration across domains such as natural language processing, machine learning, computer vision, and robotics is essential for success. Emphasize usability, accuracy, and real-time responsiveness throughout the development process, with regular testing and iterative improvements to refine the system's performance. As the team leader, encourage a creative and problem-solving mindset, fostering effective communication and coordination to bring together the diverse components into a cohesive and functional system.
 
