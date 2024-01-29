@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Polyglot Bot Translator Robot"
+title:  "Polyglot Translator Robot"
 categories: [ OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm ]
 image: assets/images/polyglotbot.gif
 featured: true
@@ -48,6 +48,6 @@ This project consists of 5 subsystems, in which each group member is in charge o
  - *Cartesian Path Planner*: When initially incorporating the `find cartesian path` functionality using the `MoveIt` API, we encountered a challenge where `RViz` indicated that the robot had identified the path but was unable to execute it. To address this issue, we examined our code related to the `MoveIt` API, specifically focusing on the function responsible for calling the `ComputeCartesianPath` service. Upon comparing our implementation with the official `MoveIt` documentation, we identified a crucial missing parameter known as `cartesian_speed_limit_link`, which had not been specified in our code. Once we addressed this omission and provided the necessary parameter, the robot successfully executed the intended movements.
  - *TF tree when integrating `apriltags`*: Upon the initial implementation of `apriltags` on the robot, we encountered an issue where the robot occasionally failed to move as intended, leading to collisions when approaching certain orientations and positions. To address this challenge, our debugging process involved a thorough examination of the `TF tree` associated with the robot. We conducted numerous experiments by sending various commands, instructing the robot to move in all possible directions. During this investigation, a crucial insight emerged when analyzing the `TF tree`. It was discovered that with the introduction of `apriltags` into the system, the root frame of the `TF tree` shifted from `panda_link0`, the base frame of the robot, to `camera_link`. Consequently, the commands we were sending were relative to the `camera_link` frame rather than the base frame. Upon rectifying this discrepancy, specifically aligning the commands with the correct base frame, the robot executed movements flawlessly.
 
-# Possible improvements.
- - Some script language still fail to detect.
- - Sometimes, the camera source get dropped, need to re-launch all.
+# Possible Improvements
+ - Some script language still fail to detect: To resolve this issue, we can try to refind the language model by training more dataset on the script languages making it easier to detect the script languages.
+ - Sometimes, the camera source get dropped, need to re-launch all: This happened because sometimes the `realsense` camera package does not detect the camera successfully so that it will throw can error when that happens. To address this issue, we can surround that with a protect function that catch the error when it throws and try it again.

@@ -4,9 +4,16 @@ Copyright: Sal, WowThemes.net, https://www.wowthemes.net
 License: https://www.wowthemes.net/freebies-license/ 
 */
 @media screen and (min-width:1500px) {
-    html { font-size:18px; } /* Increase the font size on higher resolutions */
-    .container {max-width:80%;}
+    html {
+        font-size: 18px;
+    }
+
+    /* Increase the font size on higher resolutions */
+    .container {
+        max-width: 80%;
+    }
 }
+
 .mainheading {
     padding: 1rem 0rem;
     background: rgb(42, 40, 94);
@@ -55,7 +62,7 @@ pre {
     padding-top: 1.5rem;
     margin-top: 57px;
     transition: all 0.4s;
-    background:rgb(42, 40, 94)
+    background: rgb(42, 40, 94)
 }
 
 section {
@@ -234,7 +241,7 @@ span.author-meta {
     display: inline-block;
 }
 
-span.post-date{
+span.post-date {
     color: rgba(177, 164, 164, 0.962);
 }
 
@@ -319,10 +326,12 @@ span.post-read-more a:hover {
     font-family: Righteous;
     color: rgb(235, 235, 244);
 }
+
 .mainheading p.lead {
     font-family: Righteous;
     color: rgb(235, 235, 244);
 }
+
 .mainheading h1.posttitle {
     font-weight: 700;
     margin-bottom: 1rem;
