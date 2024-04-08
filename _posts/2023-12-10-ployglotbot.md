@@ -4,7 +4,7 @@ title:  "Polyglot Translator Robot"
 categories: [ OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm ]
 image: assets/images/polyglotbot.gif
 featured: true
-hidden: false
+hidden: true
 ---
 
 OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm
