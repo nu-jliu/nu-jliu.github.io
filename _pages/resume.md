@@ -15,9 +15,9 @@ comments: false
 
 #### [LinkedIn](https://www.linkedin.com/in/jingkun-liu-709b36178/) 
 
-## [Download Resume as a PDF](Resume_ALLEN.pdf)
+## [Download Resume as a PDF](Resume_Allen.pdf)
 
-<iframe src="_pages/Resume_ALLEN.pdf" width="100%" height="1500px">
+<iframe src="_pages/Resume_Allen.pdf" width="100%" height="1500px">
 </iframe>
 
 
