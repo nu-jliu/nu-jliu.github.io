@@ -30,7 +30,26 @@ Then we can calculate the transformation between all frames:
 
 ## Euler-Language Equation Formulation
 
-In this project, to simplify the problem, we model the jack as 4 point mass with same mass, `m_j`, and model the box with the mass `m_b` and moment of intertia of `I_b`, so that the total kinetic energy and potential energy can be easily obtained by this 
+In this project, to simplify the problem, we model the jack as 4 point mass with same mass, $m_j$, and model the box with the mass $m_b$ and moment of intertia of $I_b$, so that the total kinetic energy and potential energy can be easily obtained by this 
+
+$$
+\begin{align*}
+{\cal I} &= \frac{1}{3}ML^2 \\
+{\cal I}^{**} &= \begin{bmatrix}
+    M & 0 & 0 & 0 & 0 & 0 \\
+    0 & M & 0 & 0 & 0 & 0 \\
+    0 & 0 & M & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & {\cal I}
+\end{bmatrix} \\
+{\cal V}^b &= \widecheck{\left( g^{-1} \dot{g} \right)} \\
+{\cal K} &= \sum_i{{{\cal V}_i^b}^T{\cal I}_i^{**}{\cal V}_i^b} \\
+{\cal P} &= \sum_i{ m_igh_i }\\
+{\cal L} &= {\cal K} - {\cal P}
+
+\end{align*}
+$$
 
 ## Impacts
 
