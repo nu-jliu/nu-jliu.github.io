@@ -34,22 +34,25 @@ In this project, to simplify the problem, we model the jack as 4 point mass with
 
 $$
 \begin{align*}
-{\cal I} &= \frac{1}{3}ML^2 \\
-{\cal I}^{**} &= \begin{bmatrix}
+ I &= \frac{1}{3}ML^2 \\
+ I^{**} &= 
+\begin{bmatrix}
     M & 0 & 0 & 0 & 0 & 0 \\
     0 & M & 0 & 0 & 0 & 0 \\
     0 & 0 & M & 0 & 0 & 0 \\
     0 & 0 & 0 & 0 & 0 & 0 \\
     0 & 0 & 0 & 0 & 0 & 0 \\
-    0 & 0 & 0 & 0 & 0 & {\cal I}
+    0 & 0 & 0 & 0 & 0 & {\cal I} \\
 \end{bmatrix} \\
-{\cal V}^b &= \widecheck{\left( g^{-1} \dot{g} \right)} \\
-{\cal K} &= \sum_i{{{\cal V}_i^b}^T{\cal I}_i^{**}{\cal V}_i^b} \\
-{\cal P} &= \sum_i{ m_igh_i }\\
-{\cal L} &= {\cal K} - {\cal P}
+V^b &= \widecheck{\left( g^{-1} \dot{g} \right)} \\
+K &= \sum_i{V_{ib}^T I_i^{**}V_i^b} \\
+P &= \sum_i{ m_igh_i }\\
+L &= K - P
 
 \end{align*}
 $$
+
+With for formulation of the Euler-Langrange equations, 
 
 ## Impacts
 
