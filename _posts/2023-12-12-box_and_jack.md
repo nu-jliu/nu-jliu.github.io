@@ -15,6 +15,10 @@ Python, SymPy, Dynamics
 
 # Project Description
 Used Jupyter notebook to perform the calculation about physics model of a jack with a box with some force applied upon the box.
+# Amination
+The result of the jack and box simulation can be shown in the video below
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fi4AyBE95MQ?si=xvtY0axu523nGuCj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Structure
 
@@ -44,7 +48,7 @@ $$
     0 & 0 & 0 & 0 & 0 & 0 \\
     0 & 0 & 0 & 0 & 0 & {\cal I} \\
 \end{bmatrix} \\
-V^b &= \widecheck{\left( g^{-1} \dot{g} \right)} \\
+V^b &= \check{\left( g^{-1} \dot{g} \right)} \\
 K &= \sum_i{V_{ib}^T I_i^{**}V_i^b} \\
 P &= \sum_i{ m_igh_i }\\
 L &= K - P
@@ -52,12 +56,21 @@ L &= K - P
 \end{align*}
 $$
 
-With for formulation of the Euler-Langrange equations, 
+
 
 ## Impacts
+The impact of the jack and box can be modeled by impact equations
 
+$$
+\begin{align*}
+P \big |^{\tau_+}_{\tau_-} &= \lambda \Delta \phi\\
+{\cal H} \big |^{\tau_+}_{\tau_-} &= 0 \\
+{\cal H} &= \frac{d {\cal L}}{\dot{q}} \cdot \dot{q} - {\cal L}
 
-# Amination
+\end{align*}
+$$
+
+Finally by solving all equations listed above, we can simulate the dynamics of jack wihin a box.
 
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QBnimOgBjeg?si=DBGshXhhqxGaSYix" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
