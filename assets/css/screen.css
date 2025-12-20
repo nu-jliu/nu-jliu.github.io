@@ -14,18 +14,23 @@ License: https://www.wowthemes.net/freebies-license/
     }
 }
 
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 .mainheading {
     padding: 1rem 0rem;
-    background: rgb(42, 40, 94);
+    background: #ffffff;
 }
 
 a {
-    color: rgba(222, 224, 82, 0.87);
+    color: #0066cc;
     transition: all 0.2s;
 }
 
 a:hover {
-    color: rgba(222, 224, 82, 0.424);
+    color: #004499;
     text-decoration: none;
 }
 
@@ -62,7 +67,7 @@ pre {
     padding-top: 1.5rem;
     margin-top: 57px;
     transition: all 0.4s;
-    background: rgb(42, 40, 94)
+    background: #ffffff;
 }
 
 section {
@@ -74,16 +79,16 @@ section.recent-posts {
 }
 
 .section-title h2 {
-    border-bottom: 1px solid rgba(251, 245, 245, 0.762);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     margin-bottom: 25px;
     font-weight: 700;
     font-size: 1.4rem;
     margin-bottom: 27px;
-    color: rgb(235, 235, 244);
+    color: #000000;
 }
 
 .section-title span {
-    border-bottom: 1px solid rgba(251, 245, 245, 0.762);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     display: inline-block;
     padding-bottom: 20px;
     margin-bottom: -1px;
@@ -156,7 +161,7 @@ section.recent-posts {
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.25;
-    color: rgba(251, 245, 245, 0.762);
+    color: #000000;
 }
 
 .listfeaturedtag h4.card-text,
@@ -186,7 +191,7 @@ section.recent-posts {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    color: rgba(251, 245, 245, 0.762);
+    color: rgba(0, 0, 0, .6);
 }
 
 .author-thumb {
@@ -219,8 +224,8 @@ section.recent-posts {
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 0.95rem;
-    color: rgba(251, 245, 245, 0.762);
-    background: rgba(251, 245, 245, 0.762);
+    color: rgba(0, 0, 0, .6);
+    background: transparent;
 }
 
 .toc ul {
@@ -242,7 +247,7 @@ span.author-meta {
 }
 
 span.post-date {
-    color: rgba(177, 164, 164, 0.962);
+    color: rgba(0, 0, 0, .6);
 }
 
 span.post-read {
@@ -324,31 +329,31 @@ span.post-read-more a:hover {
 
 .mainheading h1.sitetitle {
     font-family: Righteous;
-    color: rgb(235, 235, 244);
+    color: #000000;
 }
 
 .mainheading p.lead {
     font-family: Righteous;
-    color: rgb(235, 235, 244);
+    color: #000000;
 }
 
 .mainheading h1.posttitle {
     font-weight: 700;
     margin-bottom: 1rem;
-    color: rgb(235, 235, 244);
+    color: #000000;
 }
 
 
 .footer {
-    border-top: 1px solid rgba(243, 18, 18, 0.05) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.125) !important;
     padding-top: 15px;
     padding-bottom: 12px;
     font-size: 0.8rem;
-    color: rgba(251, 245, 245, 0.762);
+    color: rgba(0, 0, 0, .6);
     margin-top: 50px;
     margin-bottom: 62px;
     position: relative;
-    background: rgb(42, 40, 94);
+    background: #ffffff;
 }
 
 .link-dark {
@@ -359,7 +364,7 @@ span.post-read-more a:hover {
     font-family: Merriweather;
     font-size: 1.1rem;
     line-height: 1.84;
-    color: rgba(245, 244, 244, 0.8);
+    color: #000000;
 }
 
 blockquote {
@@ -528,7 +533,7 @@ ul.tags li {
 
 ul.tags li a {
     background: rgba(118, 118, 118, 0.05);
-    color: rgba(245, 231, 231, 0.6);
+    color: rgba(0, 0, 0, .6);
     border-radius: 3px;
     padding: 5px 10px;
 }
@@ -582,7 +587,7 @@ ul.tags li a:hover {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: rgb(42, 40, 94);
+    background-color: #ffffff;
     width: 100%;
     padding: 14px 0;
     z-index: 1;
@@ -653,7 +658,7 @@ ul.tags li a:hover {
 
 .authorpage .author-description {
     font-size: 1rem;
-    color: rgba(251, 245, 245, 0.762);
+    color: rgba(0, 0, 0, .6);
 }
 
 .post-top-meta.authorpage .btn.follow {
