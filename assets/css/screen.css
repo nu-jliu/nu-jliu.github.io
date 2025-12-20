@@ -749,6 +749,88 @@ img {
     max-width: 100%;
 }
 
+/* Mermaid Diagram Container Styling */
+.article-post .mermaid {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    overflow-x: auto;
+    overflow-y: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-post .mermaid svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .article-post .mermaid {
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .article-post .mermaid {
+        padding: 0.75rem;
+        margin: 1rem -15px;
+        border-radius: 0;
+    }
+}
+
+/* Image Background for Visibility on Dark Theme */
+.article-post img {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.article-post img.shadow {
+    -webkit-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+.article-post img.no-bg {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.featured-image img {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .article-post img {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .article-post img {
+        padding: 0.75rem;
+        margin: 0.75rem 0;
+    }
+}
+
 .bottompagination span.navigation {
     display: block;
     font-size: 0.93rem;

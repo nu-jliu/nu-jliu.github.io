@@ -32,7 +32,29 @@ post_class: post-template
             // Initialize mermaid with custom configuration
             mermaid.initialize({
                 startOnLoad: false,
-                theme: 'default'
+                theme: 'base',
+                themeVariables: {
+                    // Colors matching existing inline diagram styles
+                    primaryColor: '#e1f5ff',
+                    primaryTextColor: '#1a1a1a',
+                    primaryBorderColor: '#5a9fd4',
+                    secondaryColor: '#fff4e1',
+                    secondaryTextColor: '#1a1a1a',
+                    secondaryBorderColor: '#d4a574',
+                    tertiaryColor: '#d4edda',
+                    tertiaryTextColor: '#1a1a1a',
+                    tertiaryBorderColor: '#7ab88f',
+                    background: '#ffffff',
+                    mainBkg: '#ffffff',
+                    textColor: '#1a1a1a',
+                    lineColor: '#333333',
+                    edgeLabelBackground: '#ffffff',
+                    nodeBorder: '#5a9fd4',
+                    clusterBkg: '#f8f9fa',
+                    clusterBorder: '#dee2e6',
+                    fontFamily: '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+                    fontSize: '16px'
+                }
             });
 
             // Convert code blocks with language-mermaid to mermaid divs
