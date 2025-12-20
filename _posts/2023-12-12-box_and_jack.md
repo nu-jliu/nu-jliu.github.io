@@ -14,7 +14,49 @@ Python, SymPy, Dynamics
 **GitHub**: [View this Project on GitHub](https://github.com/nu-jliu/MECH_ENG_314/blob/main/Final%20Project/final_project_allen.ipynb)
 
 # Project Description
-Used Jupyter notebook to perform the calculation about physics model of a jack with a box with some force applied upon the box.
+
+Physics-based simulation of a jack-in-the-box system using Lagrangian mechanics and impact dynamics. The project models the coupled dynamics of a spring-loaded jack mechanism inside a box, including collision detection and impulse-based contact resolution.
+
+## System Overview
+
+```mermaid
+graph TB
+    subgraph Model["Physical System"]
+        JACK[Jack Mechanism<br/>4 Point Masses]
+        BOX[Box<br/>Rigid Body]
+        SPRING[Spring Force]
+        GRAVITY[Gravitational Force]
+    end
+
+    subgraph Simulation["Simulation Engine"]
+        LAGRANGE[Lagrangian Formulation<br/>Kinetic & Potential Energy]
+        EOM[Equations of Motion<br/>Euler-Lagrange]
+        IMPACT[Impact Detection<br/>& Resolution]
+    end
+
+    subgraph Computation["SymPy + Python"]
+        SYMBOLIC[Symbolic Math<br/>SymPy]
+        NUMERIC[Numerical Integration<br/>SciPy ODE Solver]
+        VIS[Visualization<br/>Matplotlib Animation]
+    end
+
+    JACK --> LAGRANGE
+    BOX --> LAGRANGE
+    SPRING --> LAGRANGE
+    GRAVITY --> LAGRANGE
+
+    LAGRANGE --> EOM
+    EOM --> IMPACT
+    IMPACT --> NUMERIC
+
+    EOM --> SYMBOLIC
+    SYMBOLIC --> NUMERIC
+    NUMERIC --> VIS
+
+    style LAGRANGE fill:#e1f5ff
+    style IMPACT fill:#fff4e1
+    style VIS fill:#d4edda
+```
 # Amination
 The result of the jack and box simulation can be shown in the video below
 
@@ -58,19 +100,45 @@ $$
 
 
 
-## Impacts
-The impact of the jack and box can be modeled by impact equations
+## Impact Dynamics
+
+The collision between jack and box is resolved using impulse-momentum equations.
+
+```mermaid
+flowchart TD
+    START([Time Integration]) --> DETECT{Contact<br/>Detected?}
+
+    DETECT -->|No| INTEGRATE[Continue Integration<br/>EOM]
+    INTEGRATE --> START
+
+    DETECT -->|Yes| COMPUTE_VEL[Compute Pre-Impact<br/>Velocities]
+    COMPUTE_VEL --> IMPULSE[Calculate Impulse<br/>λ Δφ]
+    IMPULSE --> UPDATE_VEL[Update Post-Impact<br/>Velocities]
+    UPDATE_VEL --> CONSERVE[Verify Energy<br/>Constraint]
+    CONSERVE --> INTEGRATE
+
+    style DETECT fill:#fff4e1
+    style IMPULSE fill:#e1f5ff
+    style CONSERVE fill:#d4edda
+```
+
+**Impact Equations:**
 
 $$
 \begin{align*}
-P \big |^{\tau_+}_{\tau_-} &= \lambda \Delta \phi\\
-{\cal H} \big |^{\tau_+}_{\tau_-} &= 0 \\
-{\cal H} &= \frac{d {\cal L}}{\dot{q}} \cdot \dot{q} - {\cal L}
-
+P \big |^{\tau_+}_{\tau_-} &= \lambda \Delta \phi \quad \text{(Momentum jump)}\\
+{\cal H} \big |^{\tau_+}_{\tau_-} &= 0 \quad \text{(Hamiltonian conservation)}\\
+{\cal H} &= \frac{d {\cal L}}{\dot{q}} \cdot \dot{q} - {\cal L} \quad \text{(Hamiltonian definition)}
 \end{align*}
 $$
 
-Finally by solving all equations listed above, we can simulate the dynamics of jack wihin a box.
+Where:
+- $ P $: Generalized momentum
+- $ \lambda $: Impact impulse magnitude
+- $ \Delta \phi $: Contact constraint gradient
+- $ {\cal H} $: Hamiltonian (total energy)
+
+By solving these equations, we simulate the complete dynamics of the jack-in-the-box system including realistic collision behavior.
 
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QBnimOgBjeg?si=DBGshXhhqxGaSYix" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

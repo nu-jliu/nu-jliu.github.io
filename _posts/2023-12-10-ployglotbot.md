@@ -14,15 +14,96 @@ OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm
 **GitHub**: [View this project on GitHub](https://github.com/nu-jliu/final-project-me495)
 
 # Project Description
-Lead the team in creating a sophisticated system that can process input from either text written on a whiteboard or audio received through a microphone. This ambitious project involves multiple stages, including text and speech recognition, language identification, translation into the target language, and the unique aspect of controlling a robot arm to physically write the translated text onto a whiteboard. The team will need to implement strong text and speech recognition capabilities, incorporating language detection mechanisms for accurate translation. The integration of a robot arm introduces a novel challenge, requiring seamless communication between language processing components and the robotic control system. Collaboration across domains such as natural language processing, machine learning, computer vision, and robotics is essential for success. Emphasize usability, accuracy, and real-time responsiveness throughout the development process, with regular testing and iterative improvements to refine the system's performance. As the team leader, encourage a creative and problem-solving mindset, fostering effective communication and coordination to bring together the diverse components into a cohesive and functional system.
 
-# Architecture
-This project consists of 5 subsystems, in which each group member is in charge of one of them:
- - `writer`: Allen was in chage of this subsystem, which uses the `cartesian path planner` from `moveit2` package to find and execute the path for the robot to write the specific characters on the write board, while calibrating the relative location of the whiteboard using the apriltags. 
- - `translation`: Damine was in charge of this subsystem, which calls `google-translation` API for translating from the source language to the target language.
- - `computer_vision`: Megan was in charge of this subsystem, which uses the `YOLO` and `ocr` python package for recongnizing texts and human detection.
- - `string2waypoints`: Kassidy as in charge of this subsystem, which uses the `matplotlib` python package to generate the waypoints for robot to travel through.
- - `apriltags`: Henry was in charge of this subsystem, which uses the `apriltag_ros` package for detecting the location and orientation of each apriltag, used for pinpointing the location and orientation of the whiteboard. 
+This project implements a multilingual translation robot system that processes input from either written text on a whiteboard or spoken audio through a microphone. The system performs real-time language detection, translation, and physically writes the translated output using a robotic arm.
+
+## System Workflow
+
+```mermaid
+flowchart TD
+    START([System Ready]) --> INPUT{Input Type?}
+
+    INPUT -->|Visual| CAMERA[Capture Whiteboard Image]
+    INPUT -->|Audio| MIC[Record Audio]
+
+    CAMERA --> HUMAN_DET[Human Detection<br/>YOLO]
+    HUMAN_DET -->|Person Detected| OCR_PROC[OCR Processing]
+    HUMAN_DET -->|No Person| CAMERA
+
+    MIC --> SPEECH_REC[Speech Recognition]
+
+    OCR_PROC --> LANG_DET[Language Detection]
+    SPEECH_REC --> LANG_DET
+
+    LANG_DET --> TRANS[Google Translate API]
+    TRANS --> GEN_WP[Generate Writing Waypoints]
+
+    GEN_WP --> CALIB[AprilTag Calibration]
+    CALIB --> PLAN[MoveIt2 Cartesian Path]
+    PLAN --> WRITE[Robot Writes Translation]
+
+    WRITE --> END([Complete])
+
+    style TRANS fill:#fff4e1
+    style PLAN fill:#e1f5ff
+    style OCR_PROC fill:#d4edda
+```
+
+The system integrates natural language processing, machine learning, computer vision, and robotics to create a cohesive multilingual translation platform with physical output capabilities.
+
+# System Architecture
+
+This project integrates five specialized subsystems to enable multilingual translation and robotic writing.
+
+```mermaid
+graph TB
+    subgraph Input["Input Processing"]
+        TEXT[Text Input<br/>Whiteboard]
+        AUDIO[Audio Input<br/>Microphone]
+        YOLO[YOLO Object Detection]
+        OCR[OCR Text Recognition]
+        SPEECH[Speech Recognition]
+    end
+
+    subgraph Translation["Translation Engine"]
+        DETECT_LANG[Language Detection]
+        TRANSLATE[Google Translate API]
+    end
+
+    subgraph Planning["Path Planning"]
+        STRING2WP[String to Waypoints<br/>Matplotlib]
+        APRILTAG[AprilTag Detection<br/>Whiteboard Calibration]
+    end
+
+    subgraph Execution["Robot Control"]
+        MOVEIT[MoveIt2 Cartesian Planner]
+        FRANKA[Franka Emika Robot Arm]
+    end
+
+    TEXT --> YOLO
+    YOLO --> OCR
+    AUDIO --> SPEECH
+
+    OCR --> DETECT_LANG
+    SPEECH --> DETECT_LANG
+    DETECT_LANG --> TRANSLATE
+
+    TRANSLATE --> STRING2WP
+    APRILTAG --> MOVEIT
+    STRING2WP --> MOVEIT
+    MOVEIT --> FRANKA
+
+    style TRANSLATE fill:#fff4e1
+    style MOVEIT fill:#e1f5ff
+    style OCR fill:#d4edda
+```
+
+**Subsystem Responsibilities:**
+ - **`writer`** (Allen): Cartesian path planning using MoveIt2 for writing characters on the whiteboard, with AprilTag-based calibration
+ - **`translation`** (Damien): Google Translate API integration for language translation
+ - **`computer_vision`** (Megan): YOLO object detection and OCR for text recognition and human detection
+ - **`string2waypoints`** (Kassidy): Matplotlib-based waypoint generation for character trajectories
+ - **`apriltags`** (Henry): AprilTag detection for whiteboard localization and orientation 
 
 # Features
 
