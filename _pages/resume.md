@@ -8,14 +8,24 @@ comments: false
 <div style="text-align: center; margin-bottom: 2rem;">
   <img src="/assets/images/DSC_5888.JPG" alt="Allen Liu" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid #ddd; margin-bottom: 1rem;">
   <h2 style="margin-bottom: 0.5rem;">Jingkun (Allen) Liu</h2>
-  <p style="color: #666; font-size: 1.1rem;">Robotics Engineer | MS in Robotics @ Northwestern University</p>
+  <p style="color: #666; font-size: 1.1rem;">Head of Robotic Engineering @ Whelix | MS Robotics, Northwestern | BS ME & CS, Rose-Hulman</p>
 </div>
 
 ---
 
 ## About Me
 
-I am a robotics engineer passionate about developing intelligent robotic systems that bridge the gap between hardware and software. With a strong foundation in both mechanical engineering and computer science, I specialize in embedded systems, robot manipulation, and machine learning applications for robotics.
+I am a robotics engineer with a passion for building intelligent systems that seamlessly integrate hardware, software, and machine learning. Currently serving as **Head of Robotic Engineering at Whelix**, I lead the development of next-generation robotic solutions.
+
+My journey in robotics spans both industry and academia. I hold a **Master of Science in Robotics from Northwestern University** and a **Bachelor of Science in Mechanical Engineering & Computer Science from Rose-Hulman Institute of Technology**. Prior to my current role, I worked as an **Embedded Robotics Software Engineer at DEKA Research & Development**, where I contributed to cutting-edge medical and mobility devices.
+
+**Core Expertise:**
+- **Embedded Systems**: Real-time control systems, microcontroller programming, hardware-software integration
+- **Robot Manipulation**: Motion planning, kinematics, trajectory optimization, and control
+- **Machine Learning for Robotics**: Computer vision, reinforcement learning, and perception systems
+- **Software Development**: ROS/ROS2, C/C++, Python, with a focus on robust and scalable architectures
+
+I thrive at the intersection of mechanical design, electrical systems, and intelligent software, building robots that can perceive, reason, and act in complex real-world environments.
 
 ---
 
