@@ -122,12 +122,12 @@ I am a robotics engineer passionate about developing intelligent robotic systems
 ## Resume
 
 <p style="text-align: center; margin: 1.5rem 0;">
-  <a href="https://www.overleaf.com/read/djmcxhcmxcwv#92d8ad" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #2c3e50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">View / Download Resume</a>
+  <a href="/assets/Resume_RSWE.pdf" download style="display: inline-block; padding: 12px 24px; background-color: #2c3e50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Download Resume</a>
 </p>
 
-<iframe src="https://www.overleaf.com/read/djmcxhcmxcwv#92d8ad" width="100%" height="800px" style="border: 1px solid #ddd; border-radius: 5px;">
+<iframe src="/assets/Resume_RSWE.pdf" width="100%" height="800px" style="border: 1px solid #ddd; border-radius: 5px;">
 </iframe>
 
 <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 1rem;">
-  <em>If the preview doesn't load, please click the button above to view on Overleaf.</em>
+  <em>If the preview doesn't load, please click the download button above.</em>
 </p>
