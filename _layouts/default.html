@@ -77,19 +77,30 @@
                         {% else %}
                     <li class="nav-item">
                         {% endif %}
-                        <a class="nav-link" href="{{ site.baseurl }}/index.html">Projects</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/index.html" data-i18n="nav.projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}/allen_resume">About</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/allen_resume" data-i18n="nav.about">About</a>
                     </li>
 
                     <li class="nav-item">
                         <a target="_blank" class="nav-link" href="https://github.com/nu-jliu"><i
                                 class="fab fa-github"></i>
-                            Github</a>
+                            <span data-i18n="nav.github">Github</span></a>
                     </li>
 
                     {% include search-lunr.html %}
+
+                    <!-- Language Selector -->
+                    <li class="nav-item dropdown" id="language-selector">
+                        <a class="nav-link dropdown-toggle" href="#" id="language-dropdown-btn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-globe"></i> EN
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language-dropdown-btn">
+                            <a class="dropdown-item" href="#" data-lang="en">English</a>
+                            <a class="dropdown-item" href="#" data-lang="zh">中文</a>
+                        </div>
+                    </li>
 
                 </ul>
 
@@ -127,7 +138,7 @@
                 <div class="d-md-flex h-100">
                     <div class="col-md-4 transpdark align-self-center text-center h-100">
                         <div class="d-md-flex align-items-center justify-content-center h-100">
-                            <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            <h2 class="d-md-block align-self-center py-1 font-weight-light"><span data-i18n="explore.title">Explore</span> <span
                                     class="d-none d-md-inline">→</span></h2>
                         </div>
                     </div>
@@ -184,6 +195,8 @@
             crossorigin="anonymous"></script>
 
         <script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
+
+        <script src="{{ site.baseurl }}/assets/js/i18n.js"></script>
 
         {% if site.lazyimages == "enabled" %}
         <script src="{{ site.baseurl }}/assets/js/lazyload.js"></script>

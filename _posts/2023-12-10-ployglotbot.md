@@ -1,11 +1,17 @@
 ---
 layout: post
 title:  "Polyglot Translator Robot"
+title_zh: "多语言翻译机器人"
+subtitle: "Multilingual translation robot using OCR, speech recognition, and robotic writing"
+subtitle_zh: "使用OCR、语音识别和机械臂书写的多语言翻译机器人"
+excerpt_zh: "一个多语言翻译机器人系统，处理白板上的书写文字或麦克风的语音输入，进行实时语言检测、翻译，并使用机械臂物理书写翻译输出。"
 categories: [ OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm ]
 image: assets/images/polyglotbot.gif
 featured: true
 hidden: true
 ---
+
+<div class="content-en" markdown="1">
 
 OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka Robot Arm
 
@@ -132,3 +138,43 @@ graph TB
 # Possible Improvements
  - Some script language still fail to detect: To resolve this issue, we can try to refind the language model by training more dataset on the script languages making it easier to detect the script languages.
  - Sometimes, the camera source get dropped, need to re-launch all: This happened because sometimes the `realsense` camera package does not detect the camera successfully so that it will throw can error when that happens. To address this issue, we can surround that with a protect function that catch the error when it throws and try it again.
+
+</div>
+
+<div class="content-zh" markdown="1">
+
+OCR, YOLO, Python, ROS2, MoveIt2, Emika Franka 机械臂
+
+**作者**: Allen Liu, Damien Koh, Kassidy Shedd, Henry Brown, Megan Black
+
+**GitHub**: [在 GitHub 上查看此项目](https://github.com/nu-jliu/final-project-me495)
+
+# 项目描述
+
+该项目实现了一个多语言翻译机器人系统，可以处理白板上的书写文字或通过麦克风输入的语音。系统进行实时语言检测、翻译，并使用机械臂物理书写翻译输出。
+
+该系统集成了自然语言处理、机器学习、计算机视觉和机器人技术，创建了一个具有物理输出能力的统一多语言翻译平台。
+
+# 系统架构
+
+该项目集成了五个专业子系统，实现多语言翻译和机器人书写。
+
+**子系统职责:**
+ - **`writer`** (Allen): 使用 MoveIt2 进行笛卡尔路径规划，在白板上书写字符，并使用 AprilTag 进行标定
+ - **`translation`** (Damien): Google Translate API 集成，用于语言翻译
+ - **`computer_vision`** (Megan): YOLO 目标检测和 OCR，用于文字识别和人体检测
+ - **`string2waypoints`** (Kassidy): 基于 Matplotlib 的字符轨迹航点生成
+ - **`apriltags`** (Henry): AprilTag 检测，用于白板定位和方向确定
+
+# 演示视频
+
+## 中文翻译成英文
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EdNptTr9Y0U?si=ZA9z5NeRokLx9CQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## 德语翻译成法语
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iFoNAHWQ9wE?si=es4q5_6K3KzxVzFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## 简体中文翻译成繁体中文
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9GdGPy74Qwg?si=FwCUxvQhKl4Oi-Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+</div>

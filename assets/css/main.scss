@@ -13,3 +13,100 @@
 	"syntax",
     "starsnonscss"
 ;
+
+/* Language Selector Styles */
+#language-selector {
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+
+        &::after {
+            margin-left: 0.3rem;
+        }
+    }
+
+    .dropdown-menu {
+        min-width: 120px;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+
+        &:hover {
+            background-color: #f8f9fa;
+        }
+
+        &.active {
+            background-color: #007bff;
+            color: white;
+        }
+    }
+}
+
+/* Bilingual Content Visibility */
+/* Default: show English, hide Chinese */
+.content-zh,
+.title-zh,
+.excerpt-zh,
+.subtitle-zh {
+    display: none !important;
+}
+
+.content-en,
+.title-en,
+.excerpt-en,
+.subtitle-en {
+    display: block;
+}
+
+/* Inline variants for spans - English visible by default */
+span.title-en,
+span.excerpt-en,
+span.subtitle-en {
+    display: inline;
+}
+
+span.title-zh,
+span.excerpt-zh,
+span.subtitle-zh {
+    display: none !important;
+}
+
+/* When in Chinese mode (html[lang="zh"]) */
+html[lang="zh"] {
+    .content-en,
+    .title-en,
+    .excerpt-en,
+    .subtitle-en {
+        display: none !important;
+    }
+
+    .content-zh,
+    .title-zh,
+    .excerpt-zh,
+    .subtitle-zh {
+        display: block !important;
+    }
+
+    span.title-en,
+    span.excerpt-en,
+    span.subtitle-en {
+        display: none !important;
+    }
+
+    span.title-zh,
+    span.excerpt-zh,
+    span.subtitle-zh {
+        display: inline !important;
+    }
+}
+
+/* Subtitle styling */
+.post-subtitle {
+    font-size: 1.25rem;
+    color: #6c757d;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}

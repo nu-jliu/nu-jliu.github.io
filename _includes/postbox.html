@@ -18,14 +18,26 @@
         </div>
         <div class="card-body">
             <h2 class="card-title">
-                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">
+                    <span class="title-en">{{ post.title }}</span>
+                    {% if post.title_zh %}<span class="title-zh">{{ post.title_zh }}</span>{% endif %}
+                </a>
                 {% if post.rating %}
                 <div class="mb-2 mt-2 font-weight-normal">
                 {% include star_rating_postbox.html %}
                 </div>
                 {% endif %}
             </h2>
-            <h4 class="card-text">{{ post.excerpt | strip_html | truncatewords:30 }}</h4>
+            {% if post.subtitle or post.subtitle_zh %}
+            <p class="card-subtitle text-muted mb-2">
+                {% if post.subtitle %}<span class="subtitle-en">{{ post.subtitle }}</span>{% endif %}
+                {% if post.subtitle_zh %}<span class="subtitle-zh">{{ post.subtitle_zh }}</span>{% endif %}
+            </p>
+            {% endif %}
+            <h4 class="card-text">
+                <span class="excerpt-en">{{ post.excerpt | strip_html | truncatewords:30 }}</span>
+                {% if post.excerpt_zh %}<span class="excerpt-zh">{{ post.excerpt_zh }}</span>{% endif %}
+            </h4>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">

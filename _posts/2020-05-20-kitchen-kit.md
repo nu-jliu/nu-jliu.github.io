@@ -1,11 +1,17 @@
 ---
 layout: post
 title: "Kitchen Kit - Android Kitchen Inventory Management App"
+title_zh: "Kitchen Kit - Android 厨房库存管理应用"
+subtitle: "Android mobile app for kitchen inventory management and recipe discovery"
+subtitle_zh: "用于厨房库存管理和食谱发现的Android移动应用"
+excerpt_zh: "一款帮助用户管理厨房库存并根据现有食材发现食谱的 Android 移动应用程序。"
 categories: [Android, Kotlin, Firebase, Firestore, Authentication, CRUD, Mobile Development]
 image: https://firebasestorage.googleapis.com/v0/b/rosestarter-project-vault.appspot.com/o/projects%2F-MAICjhDGHc3d17uDZ1c%2Fprimary?alt=media&token=89e4843a-67b5-40b7-b1cf-dc36c4f2fdf5
 featured: false
 hidden: false
 ---
+
+<div class="content-en" markdown="1">
 
 Android, Kotlin, Firebase, Firestore, Authentication, CRUD, Mobile Development
 
@@ -284,3 +290,52 @@ KitchenKit/
 ├── build.gradle
 └── README.md
 ```
+
+</div>
+
+<div class="content-zh" markdown="1">
+
+Android, Kotlin, Firebase, Firestore, 身份验证, CRUD, 移动开发
+
+[在 GitHub 上查看此项目](https://github.com/nu-jliu/CSSE483_Team_Project)
+
+[Figma 设计](https://www.figma.com/design/zLoVGME063NUiGjuXjQFZ7/Kitchen-Kit) | [项目文档](https://docs.google.com/document/d/1dXJyXBQQhVCJyxOmel_rmhNG07zNHCaK0wcTT7sSRu8/edit)
+
+# 项目描述
+
+Kitchen Kit 是一款 Android 移动应用程序，旨在帮助用户管理厨房库存并根据现有食材发现食谱。该应用作为罗斯-霍尔曼理工学院 CSSE483（Android 应用开发）课程的团队项目开发，为跟踪食材、浏览食谱和维护个性化收藏提供了全面的解决方案。
+
+该应用程序利用 Firebase 进行基于云的数据同步，使用户能够在多个设备上实时访问其厨房库存。
+
+**团队成员：** Allen Liu, Ray Fang
+
+# 应用功能
+
+**主要功能：**
+
+- **食材追踪**：添加、编辑和删除厨房食材，包括名称、数量和过期日期等详细信息
+- **食谱浏览器**：发现带有详细说明和食材清单的食谱
+- **用户身份验证**：通过 Firebase Authentication 进行安全登录和注册
+- **收藏系统**：保存喜爱的食谱以便快速访问
+- **云同步**：通过 Firestore 实现跨设备实时数据同步
+- **图片支持**：上传和显示食谱和食材的照片
+- **用户资料**：个性化用户资料和可自定义设置
+
+# 演示
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3pT0qUzxewI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# 技术栈
+
+| 组件 | 技术 | 用途 |
+|-----------|------------|---------|
+| **编程语言** | Kotlin | 主要开发语言（占代码库的 99.2%）|
+| **平台** | Android | 原生移动应用 |
+| **构建系统** | Gradle | 依赖管理和构建自动化 |
+| **数据库** | Cloud Firestore | 实时 NoSQL 云数据库 |
+| **身份验证** | Firebase Auth | 用户登录和注册 |
+| **存储** | Firebase Storage | 图片和文件存储 |
+| **UI 模式** | Fragment + RecyclerView | 现代 Android UI 架构 |
+| **设计** | Material Design | Google 的 Android 设计系统 |
+
+</div>

@@ -1,0 +1,35 @@
+# English translations
+nav:
+  projects: "Projects"
+  about: "About"
+  github: "Github"
+  search_placeholder: "Search..."
+
+home:
+  featured_projects: "Featured Projects"
+  all_projects: "All Projects"
+
+explore:
+  title: "Explore"
+
+footer:
+  copyright: "Copyright"
+  theme_by: "by WowThemes.net"
+
+search:
+  placeholder: "Search..."
+  no_results: "No results found"
+
+post:
+  summary: "Summary"
+  rating: "Rating"
+  read_more: "Read More"
+  published: "Published"
+  last_modified: "Last Modified"
+  categories: "Categories"
+  tags: "Tags"
+
+language:
+  select: "Language"
+  en: "English"
+  zh: "中文"

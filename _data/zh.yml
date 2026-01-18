@@ -1,0 +1,35 @@
+# Chinese translations (中文翻译)
+nav:
+  projects: "项目"
+  about: "关于"
+  github: "Github"
+  search_placeholder: "搜索..."
+
+home:
+  featured_projects: "精选项目"
+  all_projects: "所有项目"
+
+explore:
+  title: "探索"
+
+footer:
+  copyright: "版权所有"
+  theme_by: "由 WowThemes.net 提供主题"
+
+search:
+  placeholder: "搜索..."
+  no_results: "未找到结果"
+
+post:
+  summary: "目录"
+  rating: "评分"
+  read_more: "阅读更多"
+  published: "发布日期"
+  last_modified: "最后修改"
+  categories: "分类"
+  tags: "标签"
+
+language:
+  select: "语言"
+  en: "English"
+  zh: "中文"
