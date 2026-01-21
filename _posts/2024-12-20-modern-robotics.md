@@ -428,6 +428,7 @@ let jacobian = JacobianSpace(&s_list, &theta);
 
 ### C++ Implementation
 
+{% raw %}
 ```cpp
 #include <modern_robotics/modern_robotics.hpp>
 
@@ -445,6 +446,7 @@ arma::mat T_end = mr::FKinSpace(M, Slist, theta);
 // Compute Jacobian
 arma::mat Jacobian = mr::JacobianSpace(Slist, theta);
 ```
+{% endraw %}
 
 # Technical Requirements
 
