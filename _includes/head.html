@@ -1,0 +1,27 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+{% seo %}
+
+<!-- Favicon -->
+{% if site.favicon %}
+<link rel="icon" href="{{ site.baseurl }}/{{ site.favicon }}" type="image/png">
+{% endif %}
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
+
+<!-- No JS fallback -->
+<noscript><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/noscript.css" /></noscript>
+
+<!-- IE Compatibility -->
+<!--[if lte IE 9]><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ie8.css" /><![endif]-->

@@ -1,0 +1,33 @@
+{% comment %}
+Tiles include for displaying featured posts on the homepage.
+Only shows posts where featured: true in frontmatter.
+{% endcomment %}
+
+{% assign tiles_count = site.tiles-count | default: 6 %}
+{% assign tile_counter = 0 %}
+
+{% for tile in site.posts %}
+{% if tile.featured == true and tile_counter < tiles_count %}
+{% assign tile_counter = tile_counter | plus: 1 %}
+<article style="{% if tile.image %}background-image: url('{{ tile.image }}');{% endif %}">
+    <span class="image">
+        {% if tile.image %}
+        <img src="{{ tile.image }}" alt="{{ tile.title }}" />
+        {% endif %}
+    </span>
+    <header class="major">
+        <h3>
+            <a href="{{ tile.url | relative_url }}" class="link">
+                <span class="title-en">{{ tile.title }}</span>
+                {% if tile.title_zh %}<span class="title-zh">{{ tile.title_zh }}</span>{% endif %}
+            </a>
+        </h3>
+        <p>
+            <span class="excerpt-en">{{ tile.excerpt | strip_html | truncate: 80 }}</span>
+            {% if tile.excerpt_zh %}<span class="excerpt-zh">{{ tile.excerpt_zh | truncate: 80 }}</span>{% endif %}
+        </p>
+    </header>
+    <a href="{{ tile.url | relative_url }}" class="link primary"></a>
+</article>
+{% endif %}
+{% endfor %}

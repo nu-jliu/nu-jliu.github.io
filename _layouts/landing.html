@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<section id="banner" class="style2">
+    <div class="inner">
+        {% if page.image %}
+        <span class="image">
+            {% if page.image contains "://" %}
+            <img src="{{ page.image }}" alt="{{ page.title }}" />
+            {% else %}
+            <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}" />
+            {% endif %}
+        </span>
+        {% endif %}
+        <header class="major">
+            <h1>{{ page.title }}</h1>
+        </header>
+        <div class="content">
+            <p>{{ page.description }}</p>
+        </div>
+    </div>
+</section>
+
+<div id="main">
+    {{ content }}
+</div>

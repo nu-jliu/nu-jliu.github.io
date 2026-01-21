@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<section id="banner" class="style2">
+    <div class="inner">
+        <header class="major">
+            <h1>
+                <span class="title-en">{{ page.title }}</span>
+                {% if page.title_zh %}<span class="title-zh">{{ page.title_zh }}</span>{% endif %}
+            </h1>
+        </header>
+        <div class="content">
+            <p>
+                {% if page.subtitle %}<span class="subtitle-en">{{ page.subtitle }}</span>{% endif %}
+                {% if page.subtitle_zh %}<span class="subtitle-zh">{{ page.subtitle_zh }}</span>{% endif %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<div id="main" class="alt">
+    <section id="one">
+        <div class="inner">
+            {% for post in site.posts %}
+            {% unless post.title == "404" or post.hidden == true %}
+            <article class="post-entry">
+                <header>
+                    <h2>
+                        <a href="{{ post.url | relative_url }}">
+                            <span class="title-en">{{ post.title }}</span>
+                            {% if post.title_zh %}<span class="title-zh">{{ post.title_zh }}</span>{% endif %}
+                        </a>
+                    </h2>
+                    {% if post.date %}
+                    <p class="post-meta">
+                        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date_to_string }}</time>
+                        {% if post.rating %}
+                        <span class="rating-inline">
+                            {% for i in (1..5) %}
+                            {% if i <= post.rating %}<i class="fa fa-star"></i>{% else %}<i class="fa fa-star-o"></i>{% endif %}
+                            {% endfor %}
+                        </span>
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                </header>
+                {% if post.image %}
+                <span class="image left">
+                    {% if post.image contains "://" %}
+                    <img src="{{ post.image }}" alt="{{ post.title }}" />
+                    {% else %}
+                    <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}" />
+                    {% endif %}
+                </span>
+                {% endif %}
+                <p>
+                    <span class="excerpt-en">{{ post.excerpt | strip_html | truncate: 200 }}</span>
+                    {% if post.excerpt_zh %}<span class="excerpt-zh">{{ post.excerpt_zh | truncate: 200 }}</span>{% endif %}
+                </p>
+                <ul class="actions">
+                    <li><a href="{{ post.url | relative_url }}" class="button small" data-i18n="post.read_more">Read More</a></li>
+                </ul>
+                <hr class="major" />
+            </article>
+            {% endunless %}
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{{ content }}

@@ -1,0 +1,19 @@
+/* Fallback styles for no-JavaScript environments */
+
+body.is-loading {
+    opacity: 1;
+}
+
+body.is-loading *,
+body.is-loading *:before,
+body.is-loading *:after {
+    animation: none !important;
+    transition: none !important;
+}
+
+#menu {
+    display: none !important;
+    right: -25em;
+    transform: none;
+    visibility: hidden;
+}

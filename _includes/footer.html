@@ -1,0 +1,21 @@
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            {% for social in site.socials %}
+            {% if social[1] and social[1] != "" %}
+            <li>
+                <a href="{{ social[1] }}" class="icon alt fa-{{ social[0] | downcase }}" target="_blank">
+                    <span class="label">{{ social[0] }}</span>
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <ul class="copyright">
+            <li>&copy; {{ site.time | date: '%Y' }} {{ site.name }}</li>
+            <li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Theme: <a href="https://github.com/andrewbanchich/forty-jekyll-theme" target="_blank">Forty</a></li>
+        </ul>
+    </div>
+</footer>

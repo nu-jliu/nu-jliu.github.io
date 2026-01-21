@@ -13,7 +13,9 @@
             },
             home: {
                 featured_projects: "Featured Projects",
-                all_projects: "All Projects"
+                all_projects: "All Projects",
+                scroll_explore: "Scroll to Explore",
+                browse_all: "All Projects"
             },
             explore: {
                 title: "Explore"
@@ -50,7 +52,9 @@
             },
             home: {
                 featured_projects: "精选项目",
-                all_projects: "所有项目"
+                all_projects: "所有项目",
+                scroll_explore: "向下滚动探索",
+                browse_all: "所有项目"
             },
             explore: {
                 title: "探索"

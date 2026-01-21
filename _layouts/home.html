@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <div class="content">
+            <a href="{{ site.baseurl }}/about">
+                <img src="{{ site.baseurl }}/assets/images/DSC_5888.JPG" alt="About Me" class="profile-image" />
+            </a>
+            <p class="site-description">
+                <span class="title-en">{{ site.description }}</span>
+                <span class="title-zh">机器人工程师，专注于嵌入式系统、机器人操作和机器学习。Whelix机器人工程主管。西北大学机器人学硕士，罗斯-霍尔曼理工学院机械工程与计算机科学学士。</span>
+            </p>
+            <ul class="actions">
+                <li><a href="{{ site.baseurl }}/about" class="button" data-i18n="nav.about">About Me</a></li>
+            </ul>
+            <ul class="actions">
+                <li><a href="{{ site.baseurl }}/resume" class="button">Resume</a></li>
+            </ul>
+            <ul class="actions">
+                <li><a href="{{ site.baseurl }}/contact" class="button">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Scroll to Explore Indicator -->
+        <a href="#one" class="scroll-indicator scrolly">
+            <span class="scroll-text" data-i18n="home.scroll_explore">Scroll to Explore</span>
+            <span class="scroll-arrow"></span>
+        </a>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+
+    <!-- Break Section -->
+    <section id="breaksection">
+        <svg width="100%" height="4px">
+            <rect width="100%" height="100%" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="one" class="tiles">
+        {% include tiles.html %}
+    </section>
+
+    <!-- Break Section -->
+    <section id="breaksection">
+        <svg width="100%" height="4px">
+            <rect width="100%" height="100%" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+    </section>
+
+</div>
+
+<!-- All Projects Button -->
+<div id="allprojectsbutton" style="text-align: center; padding: 2em 0;">
+    <ul class="actions" style="justify-content: center;">
+        <li><a href="{{ site.baseurl }}/all_posts" class="button next" data-i18n="home.browse_all">All Projects</a></li>
+    </ul>
+</div>
+
+{{ content }}

@@ -1,0 +1,27 @@
+<!-- Menu (hidden by default, shown via JS when clicking Menu link) -->
+<nav id="menu" style="display: none;">
+    <ul class="links">
+        <li><a href="{{ site.baseurl }}/">Home</a></li>
+        <li><a href="{{ site.baseurl }}/about" data-i18n="nav.about">About Me</a></li>
+        <li><a href="{{ site.baseurl }}/resume">Resume</a></li>
+        <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+        <li><a href="{{ site.baseurl }}/all_posts" data-i18n="home.all_projects">All Projects</a></li>
+    </ul>
+    <ul class="actions stacked">
+        <li>
+            <a href="https://github.com/nu-jliu" target="_blank" class="button fit">
+                <i class="fab fa-github"></i> <span data-i18n="nav.github">GitHub</span>
+            </a>
+        </li>
+    </ul>
+    <!-- Language Selector -->
+    <div class="language-selector" id="language-selector">
+        <span data-i18n="language.select">Language</span>:
+        <a href="#" data-lang="en" class="lang-btn">EN</a> |
+        <a href="#" data-lang="zh" class="lang-btn">中文</a>
+    </div>
+    <!-- Search -->
+    <div class="menu-search">
+        {% include search-lunr.html %}
+    </div>
+</nav>
