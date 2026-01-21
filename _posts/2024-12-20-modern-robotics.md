@@ -17,13 +17,19 @@ Rust, C++, Robotics, Kinematics, Dynamics, Trajectory Planning, Control, Linear 
 
 **Author**: Allen Liu
 
-[Rust Library on GitHub](https://github.com/nu-jliu/modern-robotics-rs) | [C++ Library on GitHub](https://github.com/nu-jliu/modern-robotics-cpp)
+[Rust Library on GitHub](https://github.com/nu-jliu/modern-robotics-rs)
 
-[Rust Documentation](https://www.allen-liu.net/modern-robotics-rs/) | [C++ Documentation](https://www.allen-liu.net/modern-robotics-cpp/)
+[Rust Documentation](https://www.allen-liu.net/modern-robotics-rs/)
+
+[C++ Library on GitHub](https://github.com/nu-jliu/modern-robotics-cpp)
+
+[C++ Documentation](https://www.allen-liu.net/modern-robotics-cpp/)
 
 # Project Overview
 
-This project provides comprehensive implementations of fundamental robotics algorithms in both **Rust** and **C++**, based on the textbook *Modern Robotics: Mechanics, Planning, and Control* by Kevin M. Lynch and Frank C. Park (2017). These libraries enable roboticists and researchers to perform essential computations for robot kinematics, dynamics, trajectory generation, and control.
+This project provides comprehensive implementations of fundamental robotics algorithms in both **Rust** and **C++**, based on the textbook *[Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics)* by Kevin M. Lynch and Frank C. Park (2017). These libraries enable roboticists and researchers to perform essential computations for robot kinematics, dynamics, trajectory generation, and control.
+
+**Reference:** [Official Modern Robotics GitHub Repository](https://github.com/NxRLab/ModernRobotics)
 
 The dual-language approach allows developers to choose the implementation that best fits their project requirements:
 - **Rust** (`modern-robotics-rs`): Memory-safe, with zero-cost abstractions and modern package management via Cargo
@@ -36,32 +42,32 @@ Both libraries follow the textbook's chapter organization, providing a consisten
 ```mermaid
 graph TB
     subgraph Core["Core Mathematical Foundations"]
-        SO3[SO(3) Operations<br/>Rotation Matrices]
-        SE3[SE(3) Operations<br/>Homogeneous Transforms]
-        SCREW[Screw Theory<br/>Twists & Wrenches]
+        SO3["SO(3) Operations<br/>Rotation Matrices"]
+        SE3["SE(3) Operations<br/>Homogeneous Transforms"]
+        SCREW["Screw Theory<br/>Twists and Wrenches"]
     end
 
     subgraph Kinematics["Kinematics Module"]
-        FK[Forward Kinematics<br/>Product of Exponentials]
-        IK[Inverse Kinematics<br/>Newton-Raphson]
-        JAC[Jacobian Computation<br/>Body & Space Frame]
+        FK["Forward Kinematics<br/>Product of Exponentials"]
+        IK["Inverse Kinematics<br/>Newton-Raphson"]
+        JAC["Jacobian Computation<br/>Body and Space Frame"]
     end
 
     subgraph Dynamics["Dynamics Module"]
-        FD[Forward Dynamics<br/>Joint Accelerations]
-        ID[Inverse Dynamics<br/>Joint Torques]
-        MASS[Mass Matrix<br/>Inertia Computation]
+        FD["Forward Dynamics<br/>Joint Accelerations"]
+        ID["Inverse Dynamics<br/>Joint Torques"]
+        MASS["Mass Matrix<br/>Inertia Computation"]
     end
 
     subgraph Trajectory["Trajectory Generation"]
-        POLY[Polynomial Scaling<br/>Cubic & Quintic]
-        JOINT[Joint Space<br/>Trajectories]
-        CART[Cartesian Space<br/>SE(3) Interpolation]
+        POLY["Polynomial Scaling<br/>Cubic & Quintic"]
+        JOINT["Joint Space<br/>Trajectories"]
+        CART["Cartesian Space<br/>SE(3) Interpolation"]
     end
 
     subgraph Control["Control Module"]
-        CT[Computed Torque<br/>Model-Based Control]
-        PID[PID Feedback<br/>Error Correction]
+        CT["Computed Torque<br/>Model-Based Control"]
+        PID["PID Feedback<br/>Error Correction"]
     end
 
     SO3 --> SE3
@@ -545,7 +551,9 @@ Rust, C++, 机器人学, 运动学, 动力学, 轨迹规划, 控制, 线性代�
 
 # 项目概述
 
-本项目提供了基于 Kevin M. Lynch 和 Frank C. Park 所著教材《现代机器人学：机构、规划与控制》(2017) 的 **Rust** 和 **C++** 双语言实现。这些库使机器人研究人员能够执行机器人运动学、动力学、轨迹生成和控制的基本计算。
+本项目提供了基于 Kevin M. Lynch 和 Frank C. Park 所著教材《[现代机器人学：机构、规划与控制](http://hades.mech.northwestern.edu/index.php/Modern_Robotics)》(2017) 的 **Rust** 和 **C++** 双语言实现。这些库使机器人研究人员能够执行机器人运动学、动力学、轨迹生成和控制的基本计算。
+
+**参考:** [官方 Modern Robotics GitHub 仓库](https://github.com/NxRLab/ModernRobotics)
 
 双语言方法允许开发者选择最适合其项目需求的实现：
 - **Rust** (`modern-robotics-rs`): 内存安全，零成本抽象，通过 Cargo 进行现代包管理
@@ -558,32 +566,32 @@ Rust, C++, 机器人学, 运动学, 动力学, 轨迹规划, 控制, 线性代�
 ```mermaid
 graph TB
     subgraph Core["核心数学基础"]
-        SO3[SO(3) 运算<br/>旋转矩阵]
-        SE3[SE(3) 运算<br/>齐次变换]
-        SCREW[旋量理论<br/>速度旋量与力旋量]
+        SO3["SO(3) 运算<br/>旋转矩阵"]
+        SE3["SE(3) 运算<br/>齐次变换"]
+        SCREW["旋量理论<br/>速度旋量与力旋量"]
     end
 
     subgraph Kinematics["运动学模块"]
-        FK[正运动学<br/>指数积公式]
-        IK[逆运动学<br/>Newton-Raphson]
-        JAC[雅可比计算<br/>本体坐标系与空间坐标系]
+        FK["正运动学<br/>指数积公式"]
+        IK["逆运动学<br/>Newton-Raphson"]
+        JAC["雅可比计算<br/>本体坐标系与空间坐标系"]
     end
 
     subgraph Dynamics["动力学模块"]
-        FD[正动力学<br/>关节加速度]
-        ID[逆动力学<br/>关节力矩]
-        MASS[质量矩阵<br/>惯性计算]
+        FD["正动力学<br/>关节加速度"]
+        ID["逆动力学<br/>关节力矩"]
+        MASS["质量矩阵<br/>惯性计算"]
     end
 
     subgraph Trajectory["轨迹生成"]
-        POLY[多项式时间缩放<br/>三次与五次]
-        JOINT[关节空间<br/>轨迹]
-        CART[笛卡尔空间<br/>SE(3) 插值]
+        POLY["多项式时间缩放<br/>三次与五次"]
+        JOINT["关节空间<br/>轨迹"]
+        CART["笛卡尔空间<br/>SE(3) 插值"]
     end
 
     subgraph Control["控制模块"]
-        CT[计算力矩<br/>基于模型的控制]
-        PID[PID 反馈<br/>误差校正]
+        CT["计算力矩<br/>基于模型的控制"]
+        PID["PID 反馈<br/>误差校正"]
     end
 
     SO3 --> SE3
