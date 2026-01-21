@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="armGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a90a4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#64b5f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="jointGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#2a2a4a" stroke-width="0.5" opacity="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+  </g>
+
+  <!-- Robot Base -->
+  <rect x="80" y="320" width="80" height="30" rx="5" fill="#3a3a5a"/>
+  <rect x="90" y="300" width="60" height="25" rx="3" fill="#4a4a6a"/>
+
+  <!-- Joint 1 -->
+  <circle cx="120" cy="300" r="18" fill="url(#jointGrad)" filter="url(#glow)"/>
+  <circle cx="120" cy="300" r="8" fill="#1a1a2e"/>
+
+  <!-- Link 1 -->
+  <rect x="110" y="200" width="20" height="100" rx="5" fill="url(#armGrad)"/>
+
+  <!-- Joint 2 -->
+  <circle cx="120" cy="200" r="16" fill="url(#jointGrad)" filter="url(#glow)"/>
+  <circle cx="120" cy="200" r="7" fill="#1a1a2e"/>
+
+  <!-- Link 2 -->
+  <rect x="120" y="140" width="100" height="18" rx="5" fill="url(#armGrad)" transform="rotate(-30 120 200)"/>
+
+  <!-- Joint 3 -->
+  <circle cx="200" cy="145" r="14" fill="url(#jointGrad)" filter="url(#glow)"/>
+  <circle cx="200" cy="145" r="6" fill="#1a1a2e"/>
+
+  <!-- Link 3 -->
+  <rect x="200" y="100" width="80" height="14" rx="4" fill="url(#armGrad)" transform="rotate(15 200 145)"/>
+
+  <!-- End Effector -->
+  <polygon points="280,120 310,100 310,140" fill="#64b5f6" filter="url(#glow)"/>
+  <line x1="310" y1="100" x2="330" y2="85" stroke="#64b5f6" stroke-width="3"/>
+  <line x1="310" y1="140" x2="330" y2="155" stroke="#64b5f6" stroke-width="3"/>
+
+  <!-- Coordinate Frames -->
+  <!-- Base frame -->
+  <g transform="translate(120,335)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="0" y1="0" x2="0" y2="-30" stroke="#4ecdc4" stroke-width="2"/>
+    <text x="35" y="5" fill="#ff6b6b" font-size="12" font-family="monospace">x₀</text>
+    <text x="5" y="-32" fill="#4ecdc4" font-size="12" font-family="monospace">z₀</text>
+  </g>
+
+  <!-- End effector frame -->
+  <g transform="translate(320,120)">
+    <line x1="0" y1="0" x2="25" y2="-10" stroke="#ff6b6b" stroke-width="2"/>
+    <line x1="0" y1="0" x2="10" y2="-25" stroke="#4ecdc4" stroke-width="2"/>
+    <text x="28" y="-5" fill="#ff6b6b" font-size="10" font-family="monospace">xₑ</text>
+    <text x="12" y="-27" fill="#4ecdc4" font-size="10" font-family="monospace">zₑ</text>
+  </g>
+
+  <!-- Trajectory arc -->
+  <path d="M 280 120 Q 350 80 380 150" stroke="#ffd93d" stroke-width="2" stroke-dasharray="5,5" fill="none" opacity="0.7"/>
+
+  <!-- Title -->
+  <text x="450" y="60" fill="#ffffff" font-size="32" font-family="Arial, sans-serif" font-weight="bold">Modern Robotics</text>
+  <text x="450" y="95" fill="#64b5f6" font-size="20" font-family="Arial, sans-serif">Rust &amp; C++ Libraries</text>
+
+  <!-- Mathematical formulas -->
+  <g fill="#a0a0c0" font-family="serif" font-style="italic">
+    <text x="450" y="150" font-size="16">T(θ) = e^[S₁]θ₁ ... e^[Sₙ]θₙ M</text>
+    <text x="450" y="185" font-size="16">τ = M(θ)θ̈ + c(θ,θ̇) + g(θ)</text>
+    <text x="450" y="220" font-size="16">J(θ) = ∂T/∂θ</text>
+  </g>
+
+  <!-- Feature boxes -->
+  <g transform="translate(450, 250)">
+    <rect x="0" y="0" width="130" height="35" rx="5" fill="#2a4a5a" opacity="0.8"/>
+    <text x="65" y="22" fill="#4ecdc4" font-size="12" font-family="Arial" text-anchor="middle">Kinematics</text>
+  </g>
+  <g transform="translate(590, 250)">
+    <rect x="0" y="0" width="130" height="35" rx="5" fill="#4a2a5a" opacity="0.8"/>
+    <text x="65" y="22" fill="#ff6b6b" font-size="12" font-family="Arial" text-anchor="middle">Dynamics</text>
+  </g>
+  <g transform="translate(450, 295)">
+    <rect x="0" y="0" width="130" height="35" rx="5" fill="#3a4a3a" opacity="0.8"/>
+    <text x="65" y="22" fill="#98d89a" font-size="12" font-family="Arial" text-anchor="middle">Trajectory</text>
+  </g>
+  <g transform="translate(590, 295)">
+    <rect x="0" y="0" width="130" height="35" rx="5" fill="#5a4a2a" opacity="0.8"/>
+    <text x="65" y="22" fill="#ffd93d" font-size="12" font-family="Arial" text-anchor="middle">Control</text>
+  </g>
+
+  <!-- Language badges -->
+  <g transform="translate(450, 350)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#dea584"/>
+    <text x="30" y="17" fill="#1a1a2e" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Rust</text>
+  </g>
+  <g transform="translate(520, 350)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#00599c"/>
+    <text x="30" y="17" fill="#ffffff" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">C++</text>
+  </g>
+</svg>
