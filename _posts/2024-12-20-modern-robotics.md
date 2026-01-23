@@ -545,9 +545,13 @@ Rust, C++, 机器人学, 运动学, 动力学, 轨迹规划, 控制, 线性代�
 
 **作者**: Allen Liu
 
-[Rust 库 GitHub](https://github.com/nu-jliu/modern-robotics-rs) | [C++ 库 GitHub](https://github.com/nu-jliu/modern-robotics-cpp)
+[C++ 库 GitHub](https://github.com/nu-jliu/modern-robotics-cpp)
 
-[Rust 文档](https://www.allen-liu.net/modern-robotics-rs/) | [C++ 文档](https://www.allen-liu.net/modern-robotics-cpp/)
+[C++ 文档](https://www.allen-liu.net/modern-robotics-cpp/)
+
+[Rust 库 GitHub](https://github.com/nu-jliu/modern-robotics-rs) 
+
+[Rust 文档](https://www.allen-liu.net/modern-robotics-rs/) 
 
 # 项目概述
 
@@ -621,6 +625,46 @@ graph TB
 
 这些库实现了在三维空间中表示刚体运动的数学工具：
 
+```mermaid
+flowchart LR
+    subgraph so3["so(3) - 李代数"]
+        OMEGA["ω ∈ ℝ³<br/>角速度"]
+        SKEW["[ω] ∈ so(3)<br/>反对称矩阵"]
+    end
+
+    subgraph SO3["SO(3) - 旋转群"]
+        R["R ∈ SO(3)<br/>旋转矩阵"]
+        AXIS["(ω̂, θ)<br/>轴角"]
+    end
+
+    subgraph se3["se(3) - 李代数"]
+        TWIST["𝒱 ∈ ℝ⁶<br/>速度旋量"]
+        BRACKET["[𝒱] ∈ se(3)<br/>4×4 矩阵"]
+    end
+
+    subgraph SE3["SE(3) - 刚体运动群"]
+        T["T ∈ SE(3)<br/>变换矩阵"]
+        SCREW_AX["(𝒮, θ)<br/>螺旋轴"]
+    end
+
+    OMEGA -->|"VecToso3()"| SKEW
+    SKEW -->|"so3ToVec()"| OMEGA
+    SKEW -->|"MatrixExp3()"| R
+    R -->|"MatrixLog3()"| SKEW
+    R <-->|"AxisAng3()"| AXIS
+
+    TWIST -->|"VecTose3()"| BRACKET
+    BRACKET -->|"se3ToVec()"| TWIST
+    BRACKET -->|"MatrixExp6()"| T
+    T -->|"MatrixLog6()"| BRACKET
+    T <-->|"AxisAng6()"| SCREW_AX
+
+    style so3 fill:#e1f5ff
+    style SO3 fill:#fff4e1
+    style se3 fill:#d4edda
+    style SE3 fill:#fce4ec
+```
+
 **旋转矩阵指数（罗德里格斯公式）：**
 
 $$
@@ -636,6 +680,61 @@ $$
 # 正运动学
 
 库使用指数积公式实现正运动学，支持本体坐标系和空间坐标系两种表示：
+
+```mermaid
+flowchart TD
+    subgraph Input["输入参数"]
+        M["M ∈ SE(3)<br/>初始位形"]
+        SLIST["螺旋轴<br/>{𝒮₁, 𝒮₂, ..., 𝒮ₙ}"]
+        THETA["关节角度<br/>{θ₁, θ₂, ..., θₙ}"]
+    end
+
+    subgraph SpaceFrame["空间坐标系正运动学"]
+        EXP_S1["e^{[𝒮₁]θ₁}"]
+        EXP_S2["e^{[𝒮₂]θ₂}"]
+        EXP_SN["e^{[𝒮ₙ]θₙ}"]
+        PROD_S["T = e^{[𝒮₁]θ₁}...e^{[𝒮ₙ]θₙ}M"]
+    end
+
+    subgraph BodyFrame["本体坐标系正运动学"]
+        EXP_B1["e^{[ℬ₁]θ₁}"]
+        EXP_B2["e^{[ℬ₂]θ₂}"]
+        EXP_BN["e^{[ℬₙ]θₙ}"]
+        PROD_B["T = Me^{[ℬ₁]θ₁}...e^{[ℬₙ]θₙ}"]
+    end
+
+    subgraph Output["输出"]
+        T_END["T ∈ SE(3)<br/>末端执行器位姿"]
+    end
+
+    M --> PROD_S
+    M --> PROD_B
+    SLIST --> EXP_S1
+    SLIST --> EXP_S2
+    SLIST --> EXP_SN
+    THETA --> EXP_S1
+    THETA --> EXP_S2
+    THETA --> EXP_SN
+    THETA --> EXP_B1
+    THETA --> EXP_B2
+    THETA --> EXP_BN
+
+    EXP_S1 --> PROD_S
+    EXP_S2 --> PROD_S
+    EXP_SN --> PROD_S
+
+    EXP_B1 --> PROD_B
+    EXP_B2 --> PROD_B
+    EXP_BN --> PROD_B
+
+    PROD_S --> T_END
+    PROD_B --> T_END
+
+    style Input fill:#e1f5ff
+    style SpaceFrame fill:#fff4e1
+    style BodyFrame fill:#d4edda
+    style Output fill:#fce4ec
+```
 
 **指数积公式：**
 
@@ -653,6 +752,25 @@ $$
 
 逆运动学求解器使用 Newton-Raphson 迭代方法为期望的末端执行器位姿找到关节角度：
 
+```mermaid
+flowchart TD
+    START[开始] --> INIT["初始化 θ₀<br/>初始猜测"]
+    INIT --> FK["计算正运动学<br/>T(θₖ)"]
+    FK --> ERROR["计算误差<br/>𝒱ᵦ = log(T⁻¹(θₖ)T_d)"]
+    ERROR --> CHECK{"||ωᵦ|| < εω<br/>且<br/>||vᵦ|| < εv ?"}
+    CHECK -->|是| SUCCESS["返回 θₖ<br/>找到解"]
+    CHECK -->|否| JACOBIAN["计算雅可比<br/>Jᵦ(θₖ)"]
+    JACOBIAN --> UPDATE["更新 θ<br/>θₖ₊₁ = θₖ + J⁺ᵦ𝒱ᵦ"]
+    UPDATE --> ITER{"k < 最大迭代次数 ?"}
+    ITER -->|是| FK
+    ITER -->|否| FAIL["返回失败<br/>未收敛"]
+
+    style START fill:#e1f5ff
+    style SUCCESS fill:#d4edda
+    style FAIL fill:#ffcccc
+    style CHECK fill:#fff4e1
+```
+
 **Newton-Raphson 更新：**
 
 $$
@@ -664,6 +782,37 @@ $$
 # 动力学
 
 动力学模块为开链机器人实现正动力学和逆动力学：
+
+```mermaid
+flowchart LR
+    subgraph Inverse["逆动力学"]
+        direction TB
+        ID_IN["θ, θ̇, θ̈"]
+        ID_PROC["Newton-Euler<br/>算法"]
+        ID_OUT["τ (关节力矩)"]
+        ID_IN --> ID_PROC --> ID_OUT
+    end
+
+    subgraph Forward["正动力学"]
+        direction TB
+        FD_IN["θ, θ̇, τ"]
+        FD_PROC["铰接体<br/>算法"]
+        FD_OUT["θ̈ (加速度)"]
+        FD_IN --> FD_PROC --> FD_OUT
+    end
+
+    subgraph MassMatrix["质量矩阵"]
+        direction TB
+        MM_IN["θ"]
+        MM_PROC["逐列<br/>计算"]
+        MM_OUT["M(θ)"]
+        MM_IN --> MM_PROC --> MM_OUT
+    end
+
+    style Inverse fill:#e1f5ff
+    style Forward fill:#fff4e1
+    style MassMatrix fill:#d4edda
+```
 
 **运动方程：**
 
@@ -680,6 +829,39 @@ $$
 
 库支持多种轨迹生成方法：
 
+```mermaid
+flowchart TB
+    subgraph TimeScaling["时间缩放函数"]
+        CUBIC["三次多项式<br/>s(t) = 3t² - 2t³"]
+        QUINTIC["五次多项式<br/>s(t) = 10t³ - 15t⁴ + 6t⁵"]
+    end
+
+    subgraph JointSpace["关节空间轨迹"]
+        JS_START["θ_start"]
+        JS_END["θ_end"]
+        JS_INTERP["θ(s) = θ_start + s(θ_end - θ_start)"]
+    end
+
+    subgraph CartesianSpace["笛卡尔空间轨迹"]
+        SCREW_TRAJ["螺旋轨迹<br/>SE(3) 插值"]
+        DECOUPLED["解耦轨迹<br/>R(s), p(s) 分离"]
+    end
+
+    CUBIC --> JS_INTERP
+    QUINTIC --> JS_INTERP
+    CUBIC --> SCREW_TRAJ
+    QUINTIC --> SCREW_TRAJ
+    CUBIC --> DECOUPLED
+    QUINTIC --> DECOUPLED
+
+    JS_START --> JS_INTERP
+    JS_END --> JS_INTERP
+
+    style TimeScaling fill:#e1f5ff
+    style JointSpace fill:#fff4e1
+    style CartesianSpace fill:#d4edda
+```
+
 **五次时间缩放（端点处零速度和零加速度）：**
 
 $$
@@ -689,6 +871,41 @@ $$
 # 计算力矩控制
 
 控制模块实现带 PID 反馈的计算力矩控制：
+
+```mermaid
+flowchart LR
+    subgraph Reference["参考"]
+        TRAJ_REF["θ_d, θ̇_d, θ̈_d"]
+    end
+
+    subgraph Feedback["反馈控制器"]
+        ERROR_CALC["误差计算<br/>e = θ_d - θ"]
+        PID_CTRL["PID 控制器<br/>K_p·e + K_i∫e + K_d·ė"]
+    end
+
+    subgraph Feedforward["前馈"]
+        DYNAMICS["逆动力学<br/>M(θ)θ̈_d + c + g"]
+    end
+
+    subgraph Plant["机器人"]
+        ROBOT["机器人动力学<br/>τ → θ̈"]
+    end
+
+    TRAJ_REF --> ERROR_CALC
+    TRAJ_REF --> DYNAMICS
+
+    ERROR_CALC --> PID_CTRL
+    PID_CTRL --> SUM((+))
+    DYNAMICS --> SUM
+
+    SUM -->|"τ"| ROBOT
+    ROBOT -->|"θ, θ̇"| ERROR_CALC
+
+    style Reference fill:#e1f5ff
+    style Feedback fill:#fff4e1
+    style Feedforward fill:#d4edda
+    style Plant fill:#fce4ec
+```
 
 **计算力矩控制律：**
 
