@@ -8,7 +8,7 @@ excerpt_zh: "作为 Whelix 机器人工程负责人，我们成功研发、打�
 categories: [ Robotics, Cell Culture Automation, Life Sciences, SLAS2026, Whelix, Lab Automation, AI, Autonomous Systems ]
 image: assets/images/slas2026/IMG_2550_live_demo.gif
 featured: true
-hidden: false
+hidden: true
 ---
 
 <div class="content-en" markdown="1">
